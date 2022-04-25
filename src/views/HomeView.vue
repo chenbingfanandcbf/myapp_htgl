@@ -10,7 +10,7 @@
           <el-input prefix-icon="el-icon-lock" v-model="form.password"></el-input>
         </el-form-item>
         </el-form>
-        <el-button type="info">重置</el-button>
+        <el-button type="info" @click="resetForm">重置</el-button>
         <el-button type="primary" @click="dl">登录</el-button>
       </div>
     </div>
@@ -44,9 +44,12 @@ export default {
         if (!valid) return false;
         const res = await LoginApi(this.form);
         console.log("是否登录成功", res);
-        this.$router.push("/about")
+          this.$router.push("/about")
       });
     },
+      resetForm() {
+        this.$refs["rules_login"].resetFields();
+      }
   },
 };
 </script>

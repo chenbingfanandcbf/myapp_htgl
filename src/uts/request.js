@@ -5,11 +5,13 @@ const service = Axios.create({
   // 链接请求基地址
   baseURL: "http://www.ysqorz.top:8888/api/private/v1",
   // 超时时间
-  timeout: 5000
+  timeout: 50000
 })
 //创建请求拦截器
 service.interceptors.request.use(
   (config) => {
+    const token=sessionStorage.getItem("token")
+    config.headers[`Authorization`]=token
     return config
   },
   (error) => {

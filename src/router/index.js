@@ -13,10 +13,55 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue'),
+    replace:"/wro",
+    children:[
+      {
+        path:'/users',
+        name:'users',
+        component:()=>import('../views/chider/users.vue')
+      },
+      {
+        path:'/roles',
+        name:'roles',
+        component:()=>import('../views/chider/roles.vue')
+      },
+      {
+        path:'/rights',
+        name:'rights',
+        component:()=>import('../views/chider/rights.vue')
+      },
+      {
+        path:'/reports',
+        name:'reports',
+        component:()=>import('../views/chider/reports.vue')
+      },
+      {
+        path:'/goods',
+        name:'goods',
+        component:()=>import('../views/chider/goods.vue')
+      },
+      {
+        path:'/params',
+        name:'params',
+        component:()=>import('../views/chider/params.vue')
+      },
+      {
+        path:'/orders',
+        name:'orders',
+        component:()=>import('../views/chider/orders.vue')
+      },
+      {
+        path:'/categories',
+        name:'categories',
+        component:()=>import('../views/chider/categories.vue')
+      },
+      {
+        path:'/wro',
+        name:'/wro',
+        component:()=>import('../views/chider/wro.vue')
+      }
+    ]
   }
 ]
 
